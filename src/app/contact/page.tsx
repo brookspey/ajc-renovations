@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import ContactForm from "@/components/ContactForm";
 import { PHONE, EMAIL, SERVICE_AREAS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -27,95 +28,7 @@ export default function ContactPage() {
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
                 Request a Quote
               </h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      id="firstName"
-                      name="firstName"
-                      required
-                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      id="lastName"
-                      name="lastName"
-                      required
-                      className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
-                    Service Needed
-                  </label>
-                  <select
-                    id="service"
-                    name="service"
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-                  >
-                    <option value="">Select a service...</option>
-                    <option value="kitchen">Kitchen Renovation</option>
-                    <option value="bathroom">Bathroom Renovation</option>
-                    <option value="floor">Floor Renovation</option>
-                    <option value="indoor-painting">Indoor Painting</option>
-                    <option value="outdoor-painting">Outdoor Painting</option>
-                    <option value="drywall">Drywall</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-                    Project Details
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    placeholder="Tell us about your project — what you're looking to do, approximate timeline, budget range, etc."
-                    className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all resize-vertical bg-gray-50 hover:bg-white"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-4 rounded-xl text-base uppercase tracking-wider transition-all hover:shadow-xl"
-                >
-                  Send Request
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
             {/* Contact Info Sidebar */}
