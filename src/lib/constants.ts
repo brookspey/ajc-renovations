@@ -33,7 +33,8 @@ export const SERVICES = [
       "Flooring replacement",
       "Open concept conversions",
     ],
-    icon: "kitchen",
+    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80",
   },
   {
     name: "Bathroom Renovation",
@@ -50,7 +51,8 @@ export const SERVICES = [
       "Accessibility modifications",
       "Water-resistant finishing",
     ],
-    icon: "bathroom",
+    image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=1600&q=80",
   },
   {
     name: "Floor Renovation",
@@ -67,7 +69,8 @@ export const SERVICES = [
       "Baseboard & trim installation",
       "Waterproof flooring solutions",
     ],
-    icon: "floor",
+    image: "https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1622452242370-45b8035e105e?w=1600&q=80",
   },
   {
     name: "Indoor Painting",
@@ -84,7 +87,8 @@ export const SERVICES = [
       "Surface preparation & priming",
       "Low-VOC & eco-friendly paint options",
     ],
-    icon: "paint-indoor",
+    image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1600&q=80",
   },
   {
     name: "Outdoor Painting",
@@ -101,7 +105,8 @@ export const SERVICES = [
       "Weather-resistant coating application",
       "Color matching & consultation",
     ],
-    icon: "paint-outdoor",
+    image: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600&q=80",
   },
   {
     name: "Drywall",
@@ -118,6 +123,7 @@ export const SERVICES = [
       "Soundproofing drywall",
       "Popcorn ceiling removal",
     ],
-    icon: "drywall",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80",
   },
 ] as const;

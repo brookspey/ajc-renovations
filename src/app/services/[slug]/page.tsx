@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 import { SERVICES, SERVICE_AREAS } from "@/lib/constants";
@@ -42,42 +43,55 @@ export default async function ServiceDetailPage({
   return (
     <>
       <Hero
-        title={`${service.name} in Palm Beach County`}
+        title={service.name}
         subtitle={service.shortDescription}
+        backgroundImage={service.heroImage}
       />
 
       {/* Main Content */}
-      <section className="py-16 sm:py-20">
+      <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Left Content */}
             <div className="lg:col-span-2">
-              <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-6">
-                Professional {service.name} Services
+              <div className="relative h-80 sm:h-96 rounded-2xl overflow-hidden mb-10 shadow-lg">
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                />
+              </div>
+
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+                Professional {service.name} Services in Palm Beach County
               </h2>
-              <p className="text-gray-700 leading-relaxed text-lg mb-8">
+              <p className="text-gray-600 leading-relaxed text-lg mb-10">
                 {service.description}
               </p>
 
-              <h3 className="text-xl font-bold text-primary mb-4">What We Offer</h3>
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-6">What We Offer</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                 {service.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <span className="text-accent font-bold mt-0.5">✓</span>
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
+                  <div key={feature} className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl">
+                    <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="text-gray-700 text-sm">{feature}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              <h3 className="text-xl font-bold text-primary mb-4">Service Areas</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Service Areas</h3>
+              <p className="text-gray-600 mb-5">
                 We provide {service.name.toLowerCase()} services throughout Palm Beach County, including:
               </p>
-              <div className="flex flex-wrap gap-2 mb-8">
+              <div className="flex flex-wrap gap-2">
                 {SERVICE_AREAS.map((area) => (
                   <span
                     key={area}
-                    className="bg-primary/5 text-primary text-sm font-medium px-3 py-1 rounded-full border border-primary/10"
+                    className="bg-primary/5 text-primary text-sm font-medium px-4 py-2 rounded-full border border-primary/10"
                   >
                     {area}
                   </span>
@@ -86,40 +100,44 @@ export default async function ServiceDetailPage({
             </div>
 
             {/* Sidebar */}
-            <div>
-              <div className="bg-primary text-white rounded-xl p-6 sm:p-8 sticky top-24">
-                <h3 className="text-xl font-bold mb-4">Get a Free Estimate</h3>
-                <p className="text-gray-200 mb-6">
+            <div className="space-y-8">
+              <div className="bg-gray-900 text-white rounded-2xl p-8 sticky top-24">
+                <h3 className="text-xl font-bold mb-2">Get a Free Estimate</h3>
+                <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                   Ready to start your {service.name.toLowerCase()} project? Contact us today for a free, no-obligation estimate.
                 </p>
                 <Link
                   href="/contact"
-                  className="bg-accent hover:bg-accent-light text-primary-dark font-bold px-6 py-3 rounded-lg transition-colors block text-center mb-4"
+                  className="bg-accent hover:bg-accent-light text-primary-dark font-bold px-6 py-3.5 rounded text-sm uppercase tracking-wider transition-all block text-center mb-3"
                 >
                   Contact Us
                 </Link>
                 <a
                   href="tel:5615550123"
-                  className="border-2 border-white hover:bg-white hover:text-primary font-bold px-6 py-3 rounded-lg transition-colors block text-center"
+                  className="border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-bold px-6 py-3.5 rounded text-sm uppercase tracking-wider transition-all block text-center"
                 >
                   (561) 555-0123
                 </a>
               </div>
 
-              <div className="mt-8">
-                <h3 className="text-lg font-bold text-primary mb-4">Other Services</h3>
-                <ul className="space-y-2">
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-5">Other Services</h3>
+                <div className="space-y-3">
                   {otherServices.map((s) => (
-                    <li key={s.slug}>
-                      <Link
-                        href={`/services/${s.slug}`}
-                        className="text-gray-600 hover:text-accent transition-colors"
-                      >
-                        {s.name} →
-                      </Link>
-                    </li>
+                    <Link
+                      key={s.slug}
+                      href={`/services/${s.slug}`}
+                      className="flex items-center gap-3 group"
+                    >
+                      <div className="relative w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+                        <Image src={s.image} alt={s.name} fill className="object-cover" sizes="48px" />
+                      </div>
+                      <span className="text-gray-600 group-hover:text-accent transition-colors text-sm font-medium">
+                        {s.name}
+                      </span>
+                    </Link>
                   ))}
-                </ul>
+                </div>
               </div>
             </div>
           </div>
@@ -128,7 +146,6 @@ export default async function ServiceDetailPage({
 
       <CTASection />
 
-      {/* JSON-LD for this service */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

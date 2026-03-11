@@ -3,42 +3,57 @@ const TESTIMONIALS = [
     name: "Sarah M.",
     location: "West Palm Beach",
     text: "AJC Renovations completely transformed our kitchen. The team was professional, on time, and the quality exceeded our expectations. Highly recommend!",
+    initials: "SM",
   },
   {
     name: "David & Lisa R.",
     location: "Jupiter",
     text: "We hired AJC for our bathroom renovation and couldn't be happier. They worked within our budget and delivered a beautiful spa-like bathroom.",
+    initials: "DR",
   },
   {
     name: "Michael T.",
     location: "Wellington",
     text: "The painting crew was meticulous. Our entire home interior looks brand new. Great attention to detail and cleanup was spotless.",
+    initials: "MT",
   },
 ];
 
 export default function TestimonialSection() {
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
+    <section className="py-20 sm:py-28 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-4">
+        <div className="text-center mb-16">
+          <p className="text-accent font-semibold uppercase tracking-[0.2em] text-sm mb-3">Testimonials</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
             What Our Clients Say
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Don&apos;t just take our word for it — hear from homeowners across Palm Beach County.
+          <p className="text-gray-500 text-lg max-w-xl mx-auto">
+            Hear from homeowners across Palm Beach County who trusted us with their renovations.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {TESTIMONIALS.map((t) => (
             <div
               key={t.name}
-              className="bg-white rounded-xl shadow-md p-6 sm:p-8 border border-gray-100"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="text-accent text-3xl mb-4">★★★★★</div>
-              <p className="text-gray-700 leading-relaxed mb-6">&ldquo;{t.text}&rdquo;</p>
-              <div>
-                <p className="font-bold text-primary">{t.name}</p>
-                <p className="text-gray-500 text-sm">{t.location}</p>
+              <div className="flex gap-1 text-accent text-sm mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <svg key={i} className="w-5 h-5 fill-current" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                ))}
+              </div>
+              <p className="text-gray-600 leading-relaxed mb-8">&ldquo;{t.text}&rdquo;</p>
+              <div className="flex items-center gap-4">
+                <div className="w-11 h-11 rounded-full bg-primary flex items-center justify-center text-white text-sm font-bold">
+                  {t.initials}
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
+                  <p className="text-gray-400 text-sm">{t.location}</p>
+                </div>
               </div>
             </div>
           ))}
