@@ -149,6 +149,7 @@ export default function Home() {
               "Indoor Painting",
               "Outdoor Painting",
               "Drywall Installation and Repair",
+              "Pool Enclosure Restoration",
             ],
             address: {
               "@type": "PostalAddress",

@@ -126,4 +126,22 @@ export const SERVICES = [
     image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
     heroImage: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80",
   },
+  {
+    name: "Pool Enclosure Restoration",
+    slug: "pool-enclosure-restoration",
+    shortDescription: "Restore your pool enclosure to like-new condition with screen replacement, frame repair, and structural upgrades.",
+    description: "South Florida's weather takes a toll on pool enclosures — from sun damage and corrosion to storm impacts and worn-out screens. AJC Renovations provides expert pool enclosure restoration services throughout Palm Beach County. We repair and replace damaged screens, restore corroded or faded aluminum frames, reinforce structural components, and upgrade hardware to keep your pool area protected, beautiful, and bug-free for years to come.",
+    features: [
+      "Full screen rescreening & replacement",
+      "Aluminum frame repair & restoration",
+      "Corrosion treatment & prevention",
+      "Storm damage repair",
+      "Door & hardware replacement",
+      "Structural reinforcement",
+      "Frame painting & refinishing",
+      "New enclosure installation",
+    ],
+    image: "https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=800&q=80",
+    heroImage: "https://images.unsplash.com/photo-1572331165267-854da2b021b1?w=1600&q=80",
+  },
 ] as const;

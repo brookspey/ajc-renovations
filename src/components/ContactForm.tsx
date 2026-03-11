@@ -125,6 +125,7 @@ export default function ContactForm() {
           <option value="Indoor Painting">Indoor Painting</option>
           <option value="Outdoor Painting">Outdoor Painting</option>
           <option value="Drywall">Drywall</option>
+          <option value="Pool Enclosure Restoration">Pool Enclosure Restoration</option>
           <option value="Other">Other</option>
         </select>
       </div>
