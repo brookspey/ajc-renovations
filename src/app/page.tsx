@@ -157,7 +157,7 @@ export default function Home() {
               addressRegion: "FL",
               addressCountry: "US",
             },
-            telephone: "+15615550123",
+            telephone: "+15617566224",
             priceRange: "$$",
           }),
         }}

@@ -1,5 +1,5 @@
 export const COMPANY_NAME = "AJC Renovations";
-export const PHONE = "(561) 555-0123";
+export const PHONE = "(561) 756-6224";
 export const EMAIL = "info@ajcrenovations.com";
 
 export const SERVICE_AREAS = [
