@@ -134,14 +134,20 @@ export default function Home() {
             name: "AJC Renovations",
             description:
               "Professional home renovation services in Palm Beach County, FL. Kitchen renovation, bathroom renovation, flooring, painting, and drywall.",
-            areaServed: {
-              "@type": "County",
-              name: "Palm Beach County",
-              containedInPlace: {
-                "@type": "State",
-                name: "Florida",
+            areaServed: [
+              {
+                "@type": "County",
+                name: "Palm Beach County",
+                containedInPlace: {
+                  "@type": "State",
+                  name: "Florida",
+                },
               },
-            },
+              ...["Jupiter", "Jupiter Farms", "Lantana", "Westlake", "Greenacres", "Wellington", "Delray Beach", "Boynton Beach", "West Palm Beach", "Royal Palm Beach", "Palm Beach Gardens", "Palm Beach"].map((city) => ({
+                "@type": "City",
+                name: city,
+              })),
+            ],
             serviceType: [
               "Kitchen Renovation",
               "Bathroom Renovation",

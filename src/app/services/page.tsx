@@ -5,9 +5,12 @@ import CTASection from "@/components/CTASection";
 import { SERVICES } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Our Services | Home Renovation in Palm Beach County",
+  title: "Our Services — Home Renovation in Palm Beach County",
   description:
     "AJC Renovations offers kitchen renovation, bathroom renovation, floor renovation, indoor & outdoor painting, and drywall services throughout Palm Beach County, FL.",
+  alternates: {
+    canonical: "https://ajcrenovations.com/services",
+  },
 };
 
 export default function ServicesPage() {

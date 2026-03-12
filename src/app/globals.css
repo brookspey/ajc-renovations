@@ -25,6 +25,18 @@ body {
   background: #ffffff;
   color: #1f2937;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Bottom padding for sticky mobile CTA */
+@media (max-width: 1023px) {
+  body {
+    padding-bottom: 72px;
+  }
+}
+
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 html {

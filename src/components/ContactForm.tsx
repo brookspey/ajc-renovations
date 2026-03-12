@@ -14,7 +14,7 @@ export default function ContactForm() {
     const formData = new FormData(e.currentTarget);
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/peyton@tryastor.com", {
+      const res = await fetch("https://formsubmit.co/ajax/info@ajcrenovations.com", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: formData,
@@ -52,6 +52,8 @@ export default function ContactForm() {
     );
   }
 
+  const isSubmitting = status === "submitting";
+
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* FormSubmit.co config */}
@@ -59,103 +61,105 @@ export default function ContactForm() {
       <input type="hidden" name="_template" value="table" />
       <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <fieldset disabled={isSubmitting} className="space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
+              First Name
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="First Name"
+              required
+              className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white disabled:opacity-60"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
+              Last Name
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="Last Name"
+              required
+              className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white disabled:opacity-60"
+            />
+          </div>
+        </div>
         <div>
-          <label htmlFor="firstName" className="block text-sm font-semibold text-gray-900 mb-2">
-            First Name
+          <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
+            Email Address
           </label>
           <input
-            type="text"
-            id="firstName"
-            name="First Name"
+            type="email"
+            id="email"
+            name="Email"
             required
-            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
+            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white disabled:opacity-60"
           />
         </div>
         <div>
-          <label htmlFor="lastName" className="block text-sm font-semibold text-gray-900 mb-2">
-            Last Name
+          <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
+            Phone Number
           </label>
           <input
-            type="text"
-            id="lastName"
-            name="Last Name"
+            type="tel"
+            id="phone"
+            name="Phone"
             required
-            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
+            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white disabled:opacity-60"
           />
         </div>
-      </div>
-      <div>
-        <label htmlFor="email" className="block text-sm font-semibold text-gray-900 mb-2">
-          Email Address
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="Email"
-          required
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-        />
-      </div>
-      <div>
-        <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-2">
-          Phone Number
-        </label>
-        <input
-          type="tel"
-          id="phone"
-          name="Phone"
-          required
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
-        />
-      </div>
-      <div>
-        <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
-          Service Needed
-        </label>
-        <select
-          id="service"
-          name="Service Needed"
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white"
+        <div>
+          <label htmlFor="service" className="block text-sm font-semibold text-gray-900 mb-2">
+            Service Needed
+          </label>
+          <select
+            id="service"
+            name="Service Needed"
+            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all bg-gray-50 hover:bg-white disabled:opacity-60"
+          >
+            <option value="">Select a service...</option>
+            <option value="Kitchen Renovation">Kitchen Renovation</option>
+            <option value="Bathroom Renovation">Bathroom Renovation</option>
+            <option value="Floor Renovation">Floor Renovation</option>
+            <option value="Indoor Painting">Indoor Painting</option>
+            <option value="Outdoor Painting">Outdoor Painting</option>
+            <option value="Drywall">Drywall</option>
+            <option value="Pool Enclosure Restoration">Pool Enclosure Restoration</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
+            Project Details
+          </label>
+          <textarea
+            id="message"
+            name="Project Details"
+            rows={5}
+            placeholder="Tell us about your project — what you're looking to do, approximate timeline, budget range, etc."
+            className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all resize-vertical bg-gray-50 hover:bg-white disabled:opacity-60"
+          />
+        </div>
+
+        {status === "error" && (
+          <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
+            Something went wrong. Please try again or email us directly at{" "}
+            <a href="mailto:info@ajcrenovations.com" className="underline font-semibold">info@ajcrenovations.com</a>.
+          </div>
+        )}
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className="w-full bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-4 rounded-xl text-base uppercase tracking-wider transition-all hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
         >
-          <option value="">Select a service...</option>
-          <option value="Kitchen Renovation">Kitchen Renovation</option>
-          <option value="Bathroom Renovation">Bathroom Renovation</option>
-          <option value="Floor Renovation">Floor Renovation</option>
-          <option value="Indoor Painting">Indoor Painting</option>
-          <option value="Outdoor Painting">Outdoor Painting</option>
-          <option value="Drywall">Drywall</option>
-          <option value="Pool Enclosure Restoration">Pool Enclosure Restoration</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-gray-900 mb-2">
-          Project Details
-        </label>
-        <textarea
-          id="message"
-          name="Project Details"
-          rows={5}
-          placeholder="Tell us about your project — what you're looking to do, approximate timeline, budget range, etc."
-          className="w-full px-4 py-3.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-accent/50 focus:border-accent outline-none transition-all resize-vertical bg-gray-50 hover:bg-white"
-        />
-      </div>
-
-      {status === "error" && (
-        <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
-          Something went wrong. Please try again or email us directly at{" "}
-          <a href="mailto:info@ajcrenovations.com" className="underline font-semibold">info@ajcrenovations.com</a>.
-        </div>
-      )}
-
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="w-full bg-accent hover:bg-accent-light text-primary-dark font-bold px-8 py-4 rounded-xl text-base uppercase tracking-wider transition-all hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {status === "submitting" ? "Sending..." : "Send Request"}
-      </button>
+          {isSubmitting ? "Sending..." : "Send Request"}
+        </button>
+      </fieldset>
     </form>
   );
 }

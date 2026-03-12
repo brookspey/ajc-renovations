@@ -4,7 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
-import { SERVICES, SERVICE_AREAS } from "@/lib/constants";
+import { SERVICES } from "@/lib/constants";
+import { LOCATIONS } from "@/lib/locations";
 
 export function generateStaticParams() {
   return SERVICES.map((service) => ({ slug: service.slug }));
@@ -20,11 +21,18 @@ export async function generateMetadata({
   if (!service) return {};
 
   return {
-    title: `${service.name} in Palm Beach County | AJC Renovations`,
+    title: `${service.name} in Palm Beach County, FL`,
     description: `Professional ${service.name.toLowerCase()} services in Palm Beach County, FL. ${service.shortDescription} Free estimates from AJC Renovations.`,
+    alternates: {
+      canonical: `https://ajcrenovations.com/services/${slug}`,
+    },
     openGraph: {
-      title: `${service.name} | AJC Renovations`,
+      title: `${service.name} in Palm Beach County, FL`,
       description: service.shortDescription,
+      url: `https://ajcrenovations.com/services/${slug}`,
+      type: "website",
+      siteName: "AJC Renovations",
+      locale: "en_US",
     },
   };
 }
@@ -48,16 +56,33 @@ export default async function ServiceDetailPage({
         backgroundImage={service.heroImage}
       />
 
+      {/* Visual Breadcrumbs */}
+      <nav aria-label="Breadcrumb" className="bg-gray-50 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <ol className="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+            <li>
+              <Link href="/" className="hover:text-accent transition-colors">Home</Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <Link href="/services" className="hover:text-accent transition-colors">Services</Link>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" className="text-gray-900 font-medium">{service.name}</li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Main Content */}
       <section className="py-20 sm:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             {/* Left Content */}
-            <div className="lg:col-span-2">
+            <article className="lg:col-span-2">
               <div className="relative h-80 sm:h-96 rounded-2xl overflow-hidden mb-10 shadow-lg">
                 <Image
                   src={service.image}
-                  alt={service.name}
+                  alt={`Professional ${service.name.toLowerCase()} services in Palm Beach County, FL`}
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 66vw"
@@ -72,36 +97,37 @@ export default async function ServiceDetailPage({
               </p>
 
               <h3 className="text-xl font-bold text-gray-900 mb-6">What We Offer</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                 {service.features.map((feature) => (
-                  <div key={feature} className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl">
+                  <li key={feature} className="flex items-start gap-3 bg-gray-50 p-4 rounded-xl">
                     <svg className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                     <span className="text-gray-700 text-sm">{feature}</span>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
 
               <h3 className="text-xl font-bold text-gray-900 mb-4">Service Areas</h3>
               <p className="text-gray-600 mb-5">
                 We provide {service.name.toLowerCase()} services throughout Palm Beach County, including:
               </p>
               <div className="flex flex-wrap gap-2">
-                {SERVICE_AREAS.map((area) => (
-                  <span
-                    key={area}
-                    className="bg-primary/5 text-primary text-sm font-medium px-4 py-2 rounded-full border border-primary/10"
+                {LOCATIONS.map((location) => (
+                  <Link
+                    key={location.slug}
+                    href={`/services/${slug}/${location.slug}`}
+                    className="bg-primary/5 text-primary text-sm font-medium px-4 py-2 rounded-full border border-primary/10 hover:bg-primary/10 transition-colors"
                   >
-                    {area}
-                  </span>
+                    {location.name}
+                  </Link>
                 ))}
               </div>
-            </div>
+            </article>
 
             {/* Sidebar */}
-            <div className="space-y-8">
-              <div className="bg-gray-900 text-white rounded-2xl p-8 sticky top-24">
+            <aside className="space-y-8">
+              <div className="bg-gray-900 text-white rounded-2xl p-8 lg:sticky lg:top-24">
                 <h3 className="text-xl font-bold mb-2">Get a Free Estimate</h3>
                 <p className="text-gray-400 mb-6 text-sm leading-relaxed">
                   Ready to start your {service.name.toLowerCase()} project? Contact us today for a free, no-obligation estimate.
@@ -110,7 +136,7 @@ export default async function ServiceDetailPage({
                   href="/contact"
                   className="bg-accent hover:bg-accent-light text-primary-dark font-bold px-6 py-3.5 rounded text-sm uppercase tracking-wider transition-all block text-center mb-3"
                 >
-                  Contact Us
+                  Get {service.name} Estimate
                 </Link>
                 <a
                   href="tel:5617566224"
@@ -139,13 +165,29 @@ export default async function ServiceDetailPage({
                   ))}
                 </div>
               </div>
-            </div>
+            </aside>
           </div>
         </div>
       </section>
 
       <CTASection />
 
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://ajcrenovations.com" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://ajcrenovations.com/services" },
+              { "@type": "ListItem", position: 3, name: service.name },
+            ],
+          }),
+        }}
+      />
+      {/* Service Schema */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -154,10 +196,11 @@ export default async function ServiceDetailPage({
             "@type": "Service",
             name: service.name,
             description: service.description,
+            serviceType: service.name,
             provider: {
               "@type": "HomeAndConstructionBusiness",
               name: "AJC Renovations",
-              areaServed: "Palm Beach County, FL",
+              telephone: "+15617566224",
             },
             areaServed: {
               "@type": "County",

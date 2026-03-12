@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ContactForm from "@/components/ContactForm";
-import { PHONE, EMAIL, SERVICE_AREAS } from "@/lib/constants";
+import Link from "next/link";
+import { PHONE, EMAIL } from "@/lib/constants";
+import { LOCATIONS } from "@/lib/locations";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Get a Free Renovation Estimate",
+  title: "Contact Us — Free Renovation Estimate",
   description:
     "Contact AJC Renovations for a free home renovation estimate in Palm Beach County. Call us or fill out our form for kitchen, bathroom, painting, and drywall services.",
+  alternates: {
+    canonical: "https://ajcrenovations.com/contact",
+  },
 };
 
 export default function ContactPage() {
@@ -78,13 +83,14 @@ export default function ContactPage() {
               <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4">Areas We Serve</h3>
                 <div className="flex flex-wrap gap-2">
-                  {SERVICE_AREAS.map((area) => (
-                    <span
-                      key={area}
-                      className="bg-white text-gray-600 text-sm px-3 py-1.5 rounded-full border border-gray-200"
+                  {LOCATIONS.map((location) => (
+                    <Link
+                      key={location.slug}
+                      href={`/services/areas/${location.slug}`}
+                      className="bg-white text-gray-600 text-sm px-3 py-1.5 rounded-full border border-gray-200 hover:border-accent hover:text-accent transition-colors"
                     >
-                      {area}
-                    </span>
+                      {location.name}
+                    </Link>
                   ))}
                 </div>
               </div>

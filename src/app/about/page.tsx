@@ -4,9 +4,12 @@ import Hero from "@/components/Hero";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "About Us | AJC Renovations Palm Beach County",
+  title: "About Us — Palm Beach County Home Renovations",
   description:
     "Learn about AJC Renovations — Palm Beach County's trusted home renovation team. Licensed, insured, and dedicated to quality craftsmanship.",
+  alternates: {
+    canonical: "https://ajcrenovations.com/about",
+  },
 };
 
 export default function AboutPage() {

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { COMPANY_NAME, PHONE, EMAIL, SERVICE_AREAS, SERVICES } from "@/lib/constants";
+import { COMPANY_NAME, PHONE, EMAIL, SERVICES } from "@/lib/constants";
+import { LOCATIONS } from "@/lib/locations";
 
 export default function Footer() {
   return (
@@ -46,9 +47,16 @@ export default function Footer() {
           {/* Service Areas */}
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-accent mb-5">Service Areas</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              {SERVICE_AREAS.map((area) => (
-                <li key={area}>{area}</li>
+            <ul className="space-y-2 text-sm">
+              {LOCATIONS.map((location) => (
+                <li key={location.slug}>
+                  <Link
+                    href={`/services/areas/${location.slug}`}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {location.name}
+                  </Link>
+                </li>
               ))}
             </ul>
           </div>

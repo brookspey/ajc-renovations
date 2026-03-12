@@ -1,4 +1,5 @@
-import { SERVICE_AREAS } from "@/lib/constants";
+import Link from "next/link";
+import { LOCATIONS } from "@/lib/locations";
 
 export default function ServiceAreaSection() {
   return (
@@ -13,13 +14,14 @@ export default function ServiceAreaSection() {
             AJC Renovations proudly provides professional home renovation services to communities throughout Palm Beach County, Florida.
           </p>
           <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
-            {SERVICE_AREAS.map((area) => (
-              <span
-                key={area}
+            {LOCATIONS.map((location) => (
+              <Link
+                key={location.slug}
+                href={`/services/areas/${location.slug}`}
                 className="bg-white/10 backdrop-blur-sm text-white font-medium text-sm py-2.5 px-5 rounded-full border border-white/10 hover:bg-white/20 transition-colors"
               >
-                {area}
-              </span>
+                {location.name}
+              </Link>
             ))}
           </div>
         </div>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SERVICES } from "@/lib/constants";
+import { LOCATIONS } from "@/lib/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ajcrenovations.com";
@@ -9,6 +10,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.8,
+  }));
+
+  // 84 service+location pages
+  const serviceLocationPages = SERVICES.flatMap((service) =>
+    LOCATIONS.map((location) => ({
+      url: `${baseUrl}/services/${service.slug}/${location.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    }))
+  );
+
+  // 12 location landing pages
+  const locationLandingPages = LOCATIONS.map((location) => ({
+    url: `${baseUrl}/services/areas/${location.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
   }));
 
   return [
@@ -25,6 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     ...servicePages,
+    ...serviceLocationPages,
+    ...locationLandingPages,
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
