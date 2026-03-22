@@ -70,12 +70,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <a
-              href={`tel:${PHONE.replace(/[^0-9]/g, "")}`}
+            <Link
+              href="/contact"
               className="bg-accent hover:bg-accent-light text-primary-dark font-bold px-6 py-2.5 rounded text-sm uppercase tracking-wider transition-all hover:shadow-lg"
             >
               Free Estimate
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
