@@ -14,7 +14,7 @@ export default function ContactForm() {
     const formData = new FormData(e.currentTarget);
 
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@ajcrenovations.com", {
+      const res = await fetch("https://formsubmit.co/ajax/anthony@ajc-renovations.com", {
         method: "POST",
         headers: { Accept: "application/json" },
         body: formData,
@@ -148,7 +148,7 @@ export default function ContactForm() {
         {status === "error" && (
           <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl p-4 text-sm">
             Something went wrong. Please try again or email us directly at{" "}
-            <a href="mailto:info@ajcrenovations.com" className="underline font-semibold">info@ajcrenovations.com</a>.
+            <a href="mailto:anthony@ajc-renovations.com" className="underline font-semibold">anthony@ajc-renovations.com</a>.
           </div>
         )}
 

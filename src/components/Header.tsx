@@ -28,8 +28,8 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-10 text-sm">
             <span className="hidden sm:block text-gray-300">Serving all of Palm Beach County, FL</span>
             <div className="flex items-center gap-6">
-              <a href={`mailto:info@ajcrenovations.com`} className="text-gray-300 hover:text-white transition-colors">
-                info@ajcrenovations.com
+              <a href={`mailto:anthony@ajc-renovations.com`} className="text-gray-300 hover:text-white transition-colors">
+                anthony@ajc-renovations.com
               </a>
               <a href={`tel:${PHONE.replace(/[^0-9]/g, "")}`} className="text-accent font-semibold">
                 {PHONE}
