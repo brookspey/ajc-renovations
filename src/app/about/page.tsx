@@ -10,6 +10,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://ajcrenovations.com/about",
   },
+  openGraph: {
+    title: "About Us — Palm Beach County Home Renovations",
+    description:
+      "Learn about AJC Renovations — Palm Beach County's trusted home renovation team. Licensed, insured, and dedicated to quality craftsmanship.",
+    url: "https://ajcrenovations.com/about",
+    type: "website",
+    siteName: "AJC Renovations",
+    locale: "en_US",
+  },
 };
 
 export default function AboutPage() {

@@ -44,6 +44,21 @@ export const metadata: Metadata = {
     siteName: COMPANY_NAME,
     locale: "en_US",
     url: "https://ajcrenovations.com",
+    images: [
+      {
+        url: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=630&fit=crop&q=80",
+        width: 1200,
+        height: 630,
+        alt: "AJC Renovations — Home Renovation Services in Palm Beach County",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${COMPANY_NAME} | Home Renovation Services in Palm Beach County`,
+    description:
+      "Professional home renovation services throughout Palm Beach County. Kitchen, bathroom, flooring, painting, and drywall. Free estimates.",
+    images: ["https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=630&fit=crop&q=80"],
   },
 };
 
