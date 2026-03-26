@@ -24,12 +24,12 @@ export async function generateMetadata({
     title: `${service.name} in Palm Beach County, FL`,
     description: `Professional ${service.name.toLowerCase()} services in Palm Beach County, FL. ${service.shortDescription} Free estimates from AJC Renovations.`,
     alternates: {
-      canonical: `https://ajcrenovations.com/services/${slug}`,
+      canonical: `https://www.ajc-renovations.com/services/${slug}`,
     },
     openGraph: {
       title: `${service.name} in Palm Beach County, FL`,
       description: service.shortDescription,
-      url: `https://ajcrenovations.com/services/${slug}`,
+      url: `https://www.ajc-renovations.com/services/${slug}`,
       type: "website",
       siteName: "AJC Renovations",
       locale: "en_US",
@@ -180,8 +180,8 @@ export default async function ServiceDetailPage({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://ajcrenovations.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://ajcrenovations.com/services" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ajc-renovations.com" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ajc-renovations.com/services" },
               { "@type": "ListItem", position: 3, name: service.name },
             ],
           }),

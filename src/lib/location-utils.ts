@@ -21,7 +21,7 @@ export function generateServiceLocationSchemas(
   location: Location,
   faqs: FAQ[]
 ): ServiceLocationSchemas {
-  const baseUrl = "https://ajcrenovations.com";
+  const baseUrl = "https://www.ajc-renovations.com";
   const serviceName = `${service.name} in ${location.name}, FL`;
 
   const breadcrumbSchema = {

@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ajcrenovations.com"),
+  metadataBase: new URL("https://www.ajc-renovations.com"),
   title: {
     default: `${COMPANY_NAME} | Home Renovation Services in Palm Beach County`,
     template: `%s | ${COMPANY_NAME}`,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: COMPANY_NAME,
     locale: "en_US",
-    url: "https://ajcrenovations.com",
+    url: "https://www.ajc-renovations.com",
     images: [
       {
         url: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=1200&h=630&fit=crop&q=80",

@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "Contact AJC Renovations for a free home renovation estimate in Palm Beach County. Call us or fill out our form for kitchen, bathroom, painting, and drywall services.",
   alternates: {
-    canonical: "https://ajcrenovations.com/contact",
+    canonical: "https://www.ajc-renovations.com/contact",
   },
   openGraph: {
     title: "Contact Us — Free Renovation Estimate",
     description:
       "Contact AJC Renovations for a free home renovation estimate in Palm Beach County. Call us or fill out our form for kitchen, bathroom, painting, and drywall services.",
-    url: "https://ajcrenovations.com/contact",
+    url: "https://www.ajc-renovations.com/contact",
     type: "website",
     siteName: "AJC Renovations",
     locale: "en_US",

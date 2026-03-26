@@ -46,12 +46,12 @@ export async function generateMetadata({
     title: `${service.name} in ${location.name}, FL`,
     description,
     alternates: {
-      canonical: `https://ajcrenovations.com/services/${slug}/${locationSlug}`,
+      canonical: `https://www.ajc-renovations.com/services/${slug}/${locationSlug}`,
     },
     openGraph: {
       title: `${service.name} in ${location.name}, FL`,
       description,
-      url: `https://ajcrenovations.com/services/${slug}/${locationSlug}`,
+      url: `https://www.ajc-renovations.com/services/${slug}/${locationSlug}`,
       type: "website",
       siteName: "AJC Renovations",
       locale: "en_US",

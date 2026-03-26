@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "AJC Renovations offers kitchen renovation, bathroom renovation, floor renovation, indoor & outdoor painting, and drywall services throughout Palm Beach County, FL.",
   alternates: {
-    canonical: "https://ajcrenovations.com/services",
+    canonical: "https://www.ajc-renovations.com/services",
   },
 };
 

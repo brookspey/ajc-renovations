@@ -24,12 +24,12 @@ export async function generateMetadata({
     title: `Home Renovation Services in ${location.name}, FL`,
     description: `Professional home renovation services in ${location.name}, FL. Kitchen & bathroom renovations, flooring, painting, drywall, and pool enclosure restoration. Free estimates from AJC Renovations.`,
     alternates: {
-      canonical: `https://ajcrenovations.com/services/areas/${locationSlug}`,
+      canonical: `https://www.ajc-renovations.com/services/areas/${locationSlug}`,
     },
     openGraph: {
       title: `Home Renovation Services in ${location.name}, FL`,
       description: `Full range of renovation services in ${location.name}: kitchens, bathrooms, flooring, painting, drywall, and pool enclosures. Free estimates.`,
-      url: `https://ajcrenovations.com/services/areas/${locationSlug}`,
+      url: `https://www.ajc-renovations.com/services/areas/${locationSlug}`,
       type: "website",
       siteName: "AJC Renovations",
       locale: "en_US",
@@ -177,8 +177,8 @@ export default async function LocationLandingPage({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "https://ajcrenovations.com" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://ajcrenovations.com/services" },
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.ajc-renovations.com" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://www.ajc-renovations.com/services" },
               { "@type": "ListItem", position: 3, name: location.name },
             ],
           }),
